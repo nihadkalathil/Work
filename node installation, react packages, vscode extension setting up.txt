@@ -1,0 +1,19 @@
+1.Install latest node version
+
+2.goto command prompt
+
+3.type npm and click enter 
+
+4.go to external drive (example, drivename:)
+
+5.create a directory (example, mkdir foldername)
+
+6.go to the directory (example, cd foldername)
+
+7.npm install -g npm@latest
+
+8.type cd my-app
+
+9.type npm start
+
+10.Open VScode and install ES7+ React/Redux/React-Native snippets
