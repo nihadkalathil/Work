@@ -1,16 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
-import Content from './Content';
-import Header from './Header';
-import Project from './Project';
+import Blogs from "./Pages/Blogs";
+import Contact from "./Pages/Contact";
+import Home from "./Pages/Home";
+import Layout from "./Pages/Layout";
+import NoPage from "./Pages/NoPage";
+import Register from "./Pages/Register";
 
 function App() {
   return (
-    <div className="App">
-      <Header></Header>
-<Content name="Nihad"> </Content>
-    <Project favcol="green"></Project>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="register" element={<Register />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
