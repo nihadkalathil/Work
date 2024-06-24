@@ -1,96 +1,71 @@
-
-import { useState } from 'react';
-import './App.css';
-
-function Content(props) {
-  const handleClick2 = () => {
-    // Counter state is decremented
-    setCount(count+1);
-};
-const handleClick1 = () => {
-  // Counter state is decremented
-  setCount(count-1);
-};
-const handleClick3 = () => {
-setColor("blue");
-};
-  const [color, setColor] = useState("red");
-  const [count, setCount] = useState(1);
- 
-  const [json1data, setJson1] = useState({"firstname": "Nihad"});
-  return (
-    <div className="App">
-      Content
-      <br></br>{props.name}
-      <br/>
-      {count}
-      <br/>
-      {color}
-      <br/>
-      <Component2></Component2>
-      <br/>
-      {json1data.firstname}
-      <button
-                    style={{
-                        fontSize: "60%",
-                        position: "relative",
-                        top: "20vh",
-                        marginLeft: "5px",
-                        backgroundColor: "red",
-                        borderRadius: "8%",
-                        color: "white",
-                    }}
-
-                    
-                    onClick={handleClick2}
-                >
-                    Increment
-                </button>
-                <button
-                    style={{
-                        fontSize: "60%",
-                        position: "relative",
-                        top: "20vh",
-                        marginLeft: "5px",
-                        backgroundColor: "red",
-                        borderRadius: "8%",
-                        color: "white",
-                    }}
-
-                    
-                    onClick={handleClick1}
-                >
-                    decrement
-                </button>
-
-                <button
-                    style={{
-                        fontSize: "60%",
-                        position: "relative",
-                        top: "20vh",
-                        marginLeft: "5px",
-                        backgroundColor: "red",
-                        borderRadius: "8%",
-                        color: "white",
-                    }}
-
-                    
-                    onClick={handleClick3}
-                >
-                   Change color 
-                </button>
-                
-    </div>
-  );
+.App {
+  text-align: center;
 }
 
-function Component2() {
-  const [array, setArray] = useState([1,2,3]);
-  const listItems = array.map(person =>
-    <li>{person}</li>
-  );
-  return <ul>{listItems}</ul>;
-
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-export default Content;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0d0d;
+  overflow: hidden;
+  
+}
+li{
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #fff;
+  padding: 15px 16px;
+  text-decoration: none;
+  text-align: center;
+
+  
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.container{
+  margin-top: 50px;
+}
