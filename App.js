@@ -1,13 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import './App.css';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
+import "./App.css"
 import Register from "./pages/Register";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,4 +24,5 @@ function App() {
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
