@@ -1,71 +1,108 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+import { useState } from 'react';
+import { useEffect } from 'react';
+import './App.css';
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+function Content(props) {
+  const handleClick2 = () => {
+    // Counter state is decremented
+    setCount(count+1);
+};
+const handleClick1 = () => {
+  // Counter state is decremented
+  setCount(count-1);
+};
+const handleClick3 = () => {
+setColor("blue");
+};
+const [count, setCount] = useState(1);
+useEffect(() => {
+  setTimeout(() => {
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+    setCount((count) => count + 1);
+  }, 1000);
+},[count]);
 
-.App-link {
-  color: #61dafb;
-}
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #0f0d0d;
-  overflow: hidden;
+  const [color, setColor] = useState("red");
   
-}
-li{
-  float: left;
+ 
+  const [json1data, setJson1] = useState({"firstname": "Nihad","lastname":"K"});
+  return (
+    <div className="App">
+      Content
+      <br></br>{props.name}
+      <br/>
+      {count}
+      <br/>
+      {color}
+      <br/>
+      <Component2></Component2>
+      <br/>
+      {json1data.lastname} {json1data.firstname}
+      <button
+                    style={{
+                        fontSize: "60%",
+                        position: "relative",
+                        top: "20vh",
+                        marginLeft: "5px",
+                        backgroundColor: "red",
+                        borderRadius: "8%",
+                        color: "white",
+                    }}
+
+                    
+                    onClick={handleClick2}
+                >
+                    Increment
+                </button>
+                <button
+                    style={{
+                        fontSize: "60%",
+                        position: "relative",
+                        top: "20vh",
+                        marginLeft: "5px",
+                        backgroundColor: "red",
+                        borderRadius: "8%",
+                        color: "white",
+                    }}
+
+                    
+                    onClick={handleClick1}
+                >
+                    decrement
+                </button>
+
+                <button
+                    style={{
+                        fontSize: "60%",
+                        position: "relative",
+                        top: "20vh",
+                        marginLeft: "5px",
+                        backgroundColor: "red",
+                        borderRadius: "8%",
+                        color: "white",
+                    }}
+
+                    
+                    onClick={handleClick3}
+                >
+                   Change color 
+                </button>
+                
+    </div>
+  );
 }
 
-li a {
-  display: block;
-  color: #fff;
-  padding: 15px 16px;
-  text-decoration: none;
-  text-align: center;
 
-  
+function Component2() {
+  const[array,setArray]=useState([1,2,3]);
+  const listItems = array.map(number =>
+    <li>{number}</li>
+  );
+  return <ul>{listItems}</ul>;
 }
 
-/* Change the link color on hover */
-li a:hover {
-  background-color: #555;
-  color: white;
-}
 
-.container{
-  margin-top: 50px;
-}
+
+
+export default Content;
